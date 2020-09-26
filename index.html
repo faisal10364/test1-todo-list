@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>To-Do</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/6286316316.js" crossorigin="anonymous"></script>
+
+</head>
+<body>
+
+    <main id="container">
+        <div id="input-bar">
+            <i class="fas fa-clipboard-list"></i>
+            <input placeholder="Add Your Task" type="text" id="task-name">
+            <i class="fas fa-plus" id="add-btn"></i>
+        </div>
+
+        <div id="below-header">
+            <div id="complete-all-btn">
+                <i class="far fa-check-circle"></i>
+                <span>Complete All Tasks</span>
+            </div>
+
+<!--            <div id="clear-completed-btn">Clear Completed</div>-->
+        </div>
+
+        <div class="tasks-container" id="all">
+            <div class="task-card completed">
+                <div class="status-icon"></div>
+                <div class="task-content">faisal</div>
+                <div class="task-status green">Completed</div>
+                <div class="task-delete-btn"><i class="far fa-trash-alt"></i></div>
+            </div>
+
+            <div class="task-card completed">
+                <div class="status-icon"></div>
+                <div class="task-content">complete</div>
+                <div class="task-status green">Completed</div>
+                <div class="task-delete-btn"><i class="far fa-trash-alt"></i></div>
+            </div>
+
+            <div class="task-card not-started">
+                <div class="status-icon"></div>
+                <div class="task-content">the</div>
+                <div class="task-status red">not-started</div>
+                <div class="task-delete-btn"><i class="far fa-trash-alt"></i></div>
+            </div>
+
+            <div class="task-card in-progress">
+                <div class="status-icon"></div>
+                <div class="task-content">project</div>
+                <div class="task-status blue">in-progress</div>
+                <div class="task-delete-btn"><i class="far fa-trash-alt"></i></div>
+            </div>
+
+            <div class="task-card in-progress">
+                <div class="status-icon"></div>
+                <div class="task-content">hello</div>
+                <div class="task-status blue">in-progress</div>
+                <div class="task-delete-btn"><i class="far fa-trash-alt"></i></div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div class="task-count-container">
+                <p id="task-count">5</p>
+                <p>Tasks on the list</p>
+            </div>
+
+            <div class="filter">
+                <p id="showAll" class="filter-btn">All</p>
+                <p id="showComplete" class="filter-btn">Completed</p>
+                <p id="showInProgress" class="filter-btn">In-progress</p>
+                <p id="showNotStarted" class="filter-btn">Not-started</p>
+            </div>
+        </div>
+    </main>
+
+    <script src="index.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,155 @@
+body {
+    background-color: lightgray;
+}
+
+/*Styling for the header */
+
+
+#container {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    width: 600px;
+    margin: 30px auto ;
+    border: 1px solid black ;
+    padding: 10px ;
+    box-shadow: 0px 0px 4px 4px gray;
+    font-family: sans-serif;
+}
+
+#input-bar {
+    display: flex;
+    background-color: lightgray;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 5px;
+    height: 40px;
+    font-size: 1.5rem;
+    margin: 5px;
+}
+
+#task-name {
+    font-size: 1rem ;
+    width: 70%;
+    border: none;
+    outline: none;
+    background-color: inherit;
+}
+
+#add-btn {
+    cursor: pointer;
+}
+
+
+/*Below Header region */
+
+
+#below-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px;
+    font-size: 0.8rem;
+    margin-bottom: 10px;
+    border-bottom: 0.5px solid lightgray;
+}
+
+#complete-all-btn , #clear-completed-btn {
+    cursor: pointer;
+}
+
+
+/*Task Container*/
+
+.tasks-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.task-card {
+    display: flex;
+    align-content: center;
+    justify-content: space-evenly;
+    margin-left: 6px;
+    margin-bottom: 30px;
+}
+
+.task-card:last-child {
+    margin-bottom: 10px ;
+}
+
+.task-content {
+    width: 50%;
+    margin-left: 20px;
+    margin-top: 5px;
+}
+
+.status-icon {
+    border:1px solid black;
+    width:15px;
+    height:15px;
+    border-radius:50%;
+    margin-top: 5px;
+    margin-left: -30px;
+    cursor: pointer;
+}
+
+.task-status {
+    width: 100px;
+    font-size: 0.8rem;
+    margin-left: -30px;
+
+}
+
+.task-delete-btn {
+    /*margin: 6px 0 0 50px;*/
+    cursor: pointer;
+}
+
+
+.green {
+    color: green;
+}
+
+.red {
+    color: red;
+}
+
+.blue {
+    color: blue;
+}
+
+.tasks-container {
+    border-bottom: 0.5px solid lightgray;
+    margin-bottom: 10px;
+}
+
+/*footer styling */
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.task-count-container {
+    display: flex;
+    font-size: 0.8rem;
+    justify-content: space-around;
+}
+
+.task-count-container p {
+    margin:0 4px;
+}
+
+.filter {
+    display: flex;
+    font-size: 0.8rem;
+    justify-content: space-around;
+}
+
+.filter-btn {
+    margin:0 4px;
+    cursor: pointer;
+    color: lightgray;
+}
+
