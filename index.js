@@ -3,21 +3,22 @@ var delete_buttons = document.getElementsByClassName('task-delete-btn');
 var input = document.getElementById('task-name');
 var completeAll_button = document.getElementById('complete-all-btn');
 var tasks_container = document.querySelector('.tasks-container') ;
-var showAll = document.getElementById('showAll');
-var showComplete = document.getElementById('showComplete') ;
-var showInProgress = document.getElementById('showInProgress') ;
-var showNotStarted = document.getElementById('showNotStarted') ;
-var showStatus = 'showAll' ;
+var showAll = document.getElementById('showAllTasks');
+var showComplete = document.getElementById('showCompleteTasks') ;
+var showInProgress = document.getElementById('showInProgressTasks') ;
+var showNotStarted = document.getElementById('showNotStartedTasks') ;
+var showStatus = 'showAllTasks' ;
 showAll.style.color = 'Black' ;
 
-var task_card_content  = '<div class="status-icon"></div><div class="task-content"></div><div class="task-status red">Not-Started</div><div class="task-delete-btn"><i class="far fa-trash-alt"></i></div>' ;
+var task_card_content  = '<div class="status-color"></div><div class="task-content"></div><div class="task-status red">Not-Started</div><div class="task-delete-btn"><i class="far fa-trash-alt"></i></div>' ;
 var task_count = 5;
 
 // Assigning the colors to the status-icon
 
 function assignColour() {
-    let statusIconButtons = document.getElementsByClassName('status-icon') ;
-    for (div of statusIconButtons) {
+    let statusColorButtons = document.getElementsByClassName('status-color') ;
+    console.log(statusColorButtons);
+    for (div of statusColorButtons) {
         div.style.backgroundColor = div.parentElement.children[2].classList[1] ;
     }
 }
@@ -48,7 +49,7 @@ function eventSetter() {
         }) ;
     }
 
-    let progress_button = document.getElementsByClassName('status-icon') ;
+    let progress_button = document.getElementsByClassName('status-color') ;
 
     for (btn of progress_button) {
 
@@ -128,11 +129,11 @@ add_button.addEventListener('click' , function () {
 
 completeAll_button.addEventListener('click' , function () {
     let currentStatus;
-    if (showStatus === 'showAll') {
+    if (showStatus === 'showAllTasks') {
         currentStatus = 'task-card'
-    }else if (showStatus === 'showInProgress'){
+    }else if (showStatus === 'showInProgressTasks'){
         currentStatus = 'in-progress'
-    }else if (showStatus === 'showNotStarted'){
+    }else if (showStatus === 'showNotStartedTasks'){
         currentStatus = 'not-started'
     }else {
         return ;
@@ -173,7 +174,7 @@ function resetColour() {
 
 showAll.addEventListener('click' , function () {
 
-    if (showStatus !== 'showAll') {
+    if (showStatus !== 'showAllTasks') {
         resetColour();
         this.style.color = 'black' ;
         let cards = document.getElementsByClassName('task-card') ;
@@ -182,12 +183,12 @@ showAll.addEventListener('click' , function () {
         }
         task_count = document.getElementsByClassName('task-card').length;
         currentTaskCount();
-        showStatus = 'showAll' ;
+        showStatus = 'showAllTasks' ;
     }
 });
 
 showComplete.addEventListener('click' , function () {
-    if (showStatus !== 'showComplete') {
+    if (showStatus !== 'showCompleteTasks') {
         resetColour();
         this.style.color = 'black' ;
         let cards = document.getElementsByClassName('task-card') ;
@@ -200,13 +201,13 @@ showComplete.addEventListener('click' , function () {
         }
         task_count = document.getElementsByClassName('completed').length;
         currentTaskCount();
-        showStatus = 'showComplete' ;
+        showStatus = 'showCompleteTasks' ;
     }
 }) ;
 
 showInProgress.addEventListener('click' , function () {
 
-    if (showStatus !== 'showInProgress') {
+    if (showStatus !== 'showInProgressTasks') {
         resetColour();
         this.style.color = 'black' ;
         let cards = document.getElementsByClassName('task-card') ;
@@ -219,12 +220,12 @@ showInProgress.addEventListener('click' , function () {
         }
         task_count = document.getElementsByClassName('in-progress').length;
         currentTaskCount();
-        showStatus = 'showInProgress' ;
+        showStatus = 'showInProgressTasks' ;
     }
 });
 
 showNotStarted.addEventListener('click' , function () {
-    if (showStatus !== 'showNotStarted') {
+    if (showStatus !== 'showNotStartedTasks') {
         resetColour();
         this.style.color = 'black' ;
         let cards = document.getElementsByClassName('task-card') ;
@@ -237,7 +238,7 @@ showNotStarted.addEventListener('click' , function () {
         }
         task_count = document.getElementsByClassName('not-started').length;
         currentTaskCount();
-        showStatus = 'showNotStarted' ;
+        showStatus = 'showNotStartedTasks' ;
     }
 });
 
