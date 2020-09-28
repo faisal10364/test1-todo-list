@@ -52,37 +52,37 @@ function eventSetter() {
 
     for (btn of progress_button) {
 
-        btn.addEventListener('click' , function () {
-            console.log('clicked');
-            let currentProgress = this.parentElement.classList[1] ;
-            this.parentElement.classList.remove(currentProgress) ;
-            let statusElement = this.parentElement.children[2] ;
-
-            if (currentProgress === 'not-started') {
-                this.parentElement.classList.add('in-progress') ;
-                statusElement.innerHTML = 'in-progress' ;
-                statusElement.classList.remove(statusElement.classList[1]) ;
-                statusElement.classList.add('blue') ;
-
-            }else if (currentProgress === 'completed') {
-                this.parentElement.classList.add('in-progress') ;
-                statusElement.innerHTML = 'in-progress' ;
-                statusElement.classList.remove(statusElement.classList[1]) ;
-                statusElement.classList.add('blue') ;
-
-            }else {
-                this.parentElement.classList.add('completed') ;
-                statusElement.innerHTML = 'completed' ;
-                statusElement.classList.remove(statusElement.classList[1]) ;
-                statusElement.classList.add('green') ;
-            }
-
-            this.style.backgroundColor = statusElement.classList[1] ;
-
-        });
+        btn.addEventListener('click' , changeColour);
     }
 
+}
 
+function changeColour() {
+    console.log('clicked');
+    let currentProgress = this.parentElement.classList[1] ;
+    this.parentElement.classList.remove(currentProgress) ;
+    let statusElement = this.parentElement.children[2] ;
+
+    if (currentProgress === 'not-started') {
+        this.parentElement.classList.add('in-progress') ;
+        statusElement.innerHTML = 'in-progress' ;
+        statusElement.classList.remove(statusElement.classList[1]) ;
+        statusElement.classList.add('blue') ;
+
+    }else if (currentProgress === 'completed') {
+        this.parentElement.classList.add('in-progress') ;
+        statusElement.innerHTML = 'in-progress' ;
+        statusElement.classList.remove(statusElement.classList[1]) ;
+        statusElement.classList.add('blue') ;
+
+    }else {
+        this.parentElement.classList.add('completed') ;
+        statusElement.innerHTML = 'completed' ;
+        statusElement.classList.remove(statusElement.classList[1]) ;
+        statusElement.classList.add('green') ;
+    }
+
+    this.style.backgroundColor = statusElement.classList[1] ;
 
 }
 
@@ -130,7 +130,19 @@ add_button.addEventListener('click' , function () {
 completeAll_button.addEventListener('click' , function () {
     let currentStatus;
     if (showStatus === 'showAllTasks') {
-        currentStatus = 'task-card'
+        let currentStatusDiv = document.getElementsByClassName('task-card');
+        for (parent of currentStatusDiv) {
+            parent.classList.remove(parent.classList[1]) ;
+            parent.classList.add('completed');
+            let status_element = parent.children[2] ;
+            status_element.innerHTML = 'completed' ;
+            status_element.classList.remove(status_element.classList[1]);
+            status_element.classList.add('green') ;
+            console.log('changed') ;
+            parent.children[0].style.backgroundColor = 'green' ;
+        }
+        return;
+
     }else if (showStatus === 'showInProgressTasks'){
         currentStatus = 'in-progress'
     }else if (showStatus === 'showNotStartedTasks'){
@@ -156,7 +168,6 @@ completeAll_button.addEventListener('click' , function () {
             status_element.classList.add('green') ;
             console.log('changed') ;
             parent.children[0].style.backgroundColor = 'green' ;
-            console.log(currentStatusDiv) ;
         }
 
     },0)
