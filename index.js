@@ -17,7 +17,6 @@ var task_count = 5;
 
 function assignColour() {
     let statusColorButtons = document.getElementsByClassName('status-color') ;
-    console.log(statusColorButtons);
     for (div of statusColorButtons) {
         div.style.backgroundColor = div.parentElement.children[2].classList[1] ;
     }
@@ -54,6 +53,7 @@ function eventSetter() {
     for (btn of progress_button) {
 
         btn.addEventListener('click' , function () {
+            console.log('clicked');
             let currentProgress = this.parentElement.classList[1] ;
             this.parentElement.classList.remove(currentProgress) ;
             let statusElement = this.parentElement.children[2] ;
